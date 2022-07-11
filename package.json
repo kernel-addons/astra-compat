@@ -39,5 +39,8 @@
       "preload.js",
       "main.js"
     ]
+  },
+  "dependencies": {
+    "esbuild": "^0.14.49"
   }
 }

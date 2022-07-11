@@ -1,3 +1,5 @@
+/// <reference path="../../types.d.ts" />
+
 export default new class Package {
     public onStart(): void {
         console.log("Hey.");
