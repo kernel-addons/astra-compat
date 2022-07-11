@@ -1,0 +1,43 @@
+{
+  "name": "plugin-template",
+  "version": "1.0.0",
+  "description": "A template for kernel packages.",
+  "scripts": {
+    "pack": "node scripts/pack.mjs",
+    "install-types": "node scripts/types.mjs",
+    "watch:main": "webpack --mode=development --env=context=main --watch",
+    "watch:preload": "webpack --mode=development --env=context=preload --watch",
+    "watch:renderer": "webpack --mode=development --env=context=renderer --watch",
+    "build:main": "webpack --mode=production --env=context=main",
+    "build:preload": "webpack --mode=production --env=context=preload",
+    "build:renderer": "webpack --mode=production --env=context=renderer",
+    "build": "pnpm build:main && pnpm build:preload && pnpm build:renderer",
+    "dist": "pnpm build && pnpm run pack"
+  },
+  "author": "Strencher",
+  "license": "ISC",
+  "devDependencies": {
+    "asar": "^3.1.0",
+    "css-loader": "^6.7.1",
+    "esbuild-loader": "^2.18.0",
+    "mini-css-extract-plugin": "^2.6.0",
+    "sass": "^1.51.0",
+    "sass-loader": "^12.6.0",
+    "webpack": "^5.72.1",
+    "webpack-cli": "^4.9.2"
+  },
+  "build": {
+    "minifyJs": true,
+    "minifyCss": true,
+    "jsTarget": "es2022",
+    "asarHash": true,
+    "gitInfo": true,
+    "sourcemap": true,
+    "assets": [
+      "renderer.js",
+      "style.css",
+      "preload.js",
+      "main.js"
+    ]
+  }
+}
